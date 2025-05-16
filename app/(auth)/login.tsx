@@ -1,7 +1,14 @@
-// app/auth/login.tsx
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Link } from 'expo-router';
 import React, { useState } from 'react';
-import { Alert, Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  Alert,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -27,10 +34,11 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Log In</Text>
       <TextInput
         placeholder="Email"
         style={styles.input}
+        placeholderTextColor="#aaa"
         onChangeText={setEmail}
         autoCapitalize="none"
       />
@@ -38,31 +46,96 @@ export default function Login() {
         placeholder="Password"
         secureTextEntry
         style={styles.input}
+        placeholderTextColor="#aaa"
         onChangeText={setPassword}
       />
-      <Button title="Log In" color="#6C63FF" onPress={handleLogin} />
+      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+        <Text style={styles.loginButtonText}>Log In</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.or}>OR</Text>
+
+      <View style={styles.socialButtons}>
+        <TouchableOpacity style={styles.googleButton}>
+          <Text style={styles.socialButtonText}>Continue with Google</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.facebookButton}>
+          <Text style={styles.socialButtonText}>Continue with Facebook</Text>
+        </TouchableOpacity>
+      </View>
+
+      <Text style={styles.loginLink}>
+        Don’t have an account?{' '}
+        <Link href="/signup" style={styles.link}>Sign Up</Link>
+      </Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
     flex: 1,
+    backgroundColor: '#f2f4f7',
     justifyContent: 'center',
-    backgroundColor: "#fff",
+    paddingHorizontal: 25,
   },
   title: {
-    fontSize: 26,
-    fontWeight: "bold",
-    marginBottom: 20,
-    color: "#2D2D2D",
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginBottom: 25,
+    color: '#333',
+    textAlign: 'center',
   },
   input: {
+    height: 50,
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    marginBottom: 15,
+    backgroundColor: '#fff',
     borderWidth: 1,
     borderColor: '#ddd',
-    borderRadius: 8,
-    padding: 10,
+  },
+  loginButton: {
+    backgroundColor: '#6C63FF',
+    paddingVertical: 15,
+    borderRadius: 10,
     marginBottom: 15,
+  },
+  loginButtonText: {
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  or: {
+    textAlign: 'center',
+    marginVertical: 10,
+    color: '#999',
+  },
+  socialButtons: {
+    gap: 10,
+    marginBottom: 20,
+  },
+  googleButton: {
+    backgroundColor: '#DB4437',
+    paddingVertical: 12,
+    borderRadius: 8,
+  },
+  facebookButton: {
+    backgroundColor: '#4267B2',
+    paddingVertical: 12,
+    borderRadius: 8,
+  },
+  socialButtonText: {
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: '600',
+  },
+  loginLink: {
+    textAlign: 'center',
+    color: '#666',
+  },
+  link: {
+    color: '#6C63FF',
+    fontWeight: '600',
   },
 });
