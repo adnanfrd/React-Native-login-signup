@@ -6,7 +6,7 @@ export default function RootLayout() {
   const router = useRouter();
 
   const getStarted = () => {
-    router.push('/auth/Signup');
+    router.push('/auth/signup');
   };
 
   return (
