@@ -1,27 +1,33 @@
-// app/auth/signup.tsx
+// app/auth/login.tsx
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { Alert, Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
-export default function Signup() {
+export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const router = useRouter();
 
-  const handleSignup = async () => {
+  const handleLogin = async () => {
     try {
-      await AsyncStorage.setItem('user', JSON.stringify({ email, password }));
-      Alert.alert('Success', 'Signup successful!');
-      router.push('/auth/Login');
-    } catch (err) {
-      Alert.alert('Error', 'Failed to sign up.');
+      const storedUser = await AsyncStorage.getItem('user');
+      if (storedUser) {
+        const parsed = JSON.parse(storedUser);
+        if (parsed.email === email && parsed.password === password) {
+          Alert.alert('Welcome Back', 'Login Successful!');
+        } else {
+          Alert.alert('Invalid Credentials');
+        }
+      } else {
+        Alert.alert('No user found, please sign up.');
+      }
+    } catch {
+      Alert.alert('Login failed');
     }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Create Account</Text>
+      <Text style={styles.title}>Login</Text>
       <TextInput
         placeholder="Email"
         style={styles.input}
@@ -34,7 +40,7 @@ export default function Signup() {
         style={styles.input}
         onChangeText={setPassword}
       />
-      <Button title="Sign Up" color="#6C63FF" onPress={handleSignup} />
+      <Button title="Log In" color="#6C63FF" onPress={handleLogin} />
     </View>
   );
 }
