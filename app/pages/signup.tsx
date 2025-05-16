@@ -13,7 +13,7 @@ export default function Signup() {
     try {
       await AsyncStorage.setItem('user', JSON.stringify({ email, password }));
       Alert.alert('Success', 'Signup successful!');
-      router.push('/auth/login');
+      router.push('/pages/login');
     } catch (err) {
       Alert.alert('Error', 'Failed to sign up.');
     }
