@@ -1,36 +1,30 @@
-import { LinearGradient } from 'expo-linear-gradient';
+// app/index.tsx
 import { useRouter } from "expo-router";
-import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Button, Image, StyleSheet, Text, View } from "react-native";
 
 export default function HomeScreen() {
   const router = useRouter();
 
   const getStarted = () => {
-    router.push("/signup");
+    router.push('/signup'); 
   };
 
   return (
-    <LinearGradient
-      colors={["#6C63FF", "#A084E8"]}
-      style={styles.container}
-    >
-      <Image
-        source={require("../assets/images/splash-icon.png")}
-        style={styles.logo}
-      />
-      <Text style={styles.title}>Welcome to LoginSignup</Text>
+    <View style={styles.container}>
+      <Image source={require('../assets/images/splash-icon.png')} style={styles.logo} />
+      <Text style={styles.title}>LoginSignup App</Text>
       <Text style={styles.subtitle}>Securely manage your account</Text>
-
-      <TouchableOpacity onPress={getStarted} style={styles.button}>
-        <Text style={styles.buttonText}>Get Started</Text>
-      </TouchableOpacity>
-    </LinearGradient>
+      <View style={styles.buttonContainer}>
+        <Button title="Get Started" color="#6C63FF" onPress={getStarted} />
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#F5F6FA",
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
@@ -41,28 +35,17 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   title: {
-    fontSize: 30,
+    fontSize: 28,
     fontWeight: "bold",
-    color: "#fff",
-    textAlign: "center",
+    color: "#2D2D2D",
   },
   subtitle: {
     fontSize: 16,
-    color: "#E0E0E0",
+    color: "#555",
     marginTop: 10,
-    marginBottom: 40,
-    textAlign: "center",
+    marginBottom: 30,
   },
-  button: {
-    backgroundColor: "#fff",
-    paddingVertical: 14,
-    paddingHorizontal: 40,
-    borderRadius: 30,
-    elevation: 5,
-  },
-  buttonText: {
-    color: "#6C63FF",
-    fontSize: 16,
-    fontWeight: "bold",
+  buttonContainer: {
+    width: "80%",
   },
 });
