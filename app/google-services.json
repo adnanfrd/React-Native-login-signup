@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "731687939503",
+    "project_id": "react-native-loginsignup-b9b84",
+    "storage_bucket": "react-native-loginsignup-b9b84.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:731687939503:android:5545c45525111eb612935a",
+        "android_client_info": {
+          "package_name": "expo.xo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "731687939503-iegl0re61i7qgkalfvp1gvshmlu8l7ug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVF4RJ-TzcI1Nlz3cw4lrfBspxjHE_6zs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "731687939503-iegl0re61i7qgkalfvp1gvshmlu8l7ug.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
