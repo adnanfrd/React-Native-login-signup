@@ -3,13 +3,13 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCWcPdRymWdnsRixM8DUdLwKD0-VB4Jwsk",
-  authDomain: "react-native-loginsignup-b9b84.firebaseapp.com",
-  projectId: "react-native-loginsignup-b9b84",
-  storageBucket: "react-native-loginsignup-b9b84.firebasestorage.app",
-  messagingSenderId: "731687939503",
-  appId: "1:731687939503:web:c8d5a1fac5f3ee7312935a",
-  measurementId: "G-33J9H13792"
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGE_SENDER_ID,
+  appId: process.env.APP_ID,
+  measurementId: process.env.MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
