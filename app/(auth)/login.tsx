@@ -1,3 +1,5 @@
+import { useFacebookAuth } from '@/hooks/useFacebookAuth';
+import { useGoogleAuth } from '@/hooks/useGoogleAuth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Link } from 'expo-router';
 import React, { useState } from 'react';
@@ -11,8 +13,14 @@ import {
 } from 'react-native';
 
 export default function Login() {
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { promptAsync: signInWithGoogle, request: googleRequest } = useGoogleAuth();
+  const { promptAsync: signInWithFacebook, request: fbRequest } = useFacebookAuth();
+
+
 
   const handleLogin = async () => {
     try {
@@ -56,10 +64,18 @@ export default function Login() {
       <Text style={styles.or}>OR</Text>
 
       <View style={styles.socialButtons}>
-        <TouchableOpacity style={styles.googleButton}>
+        <TouchableOpacity 
+        style={styles.googleButton}
+        onPress={() => signInWithGoogle()}
+        disabled={!googleRequest}
+        >
           <Text style={styles.socialButtonText}>Continue with Google</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.facebookButton}>
+        <TouchableOpacity 
+        style={styles.facebookButton}
+        onPress={() => signInWithFacebook()}
+        disabled={!fbRequest}
+        >
           <Text style={styles.socialButtonText}>Continue with Facebook</Text>
         </TouchableOpacity>
       </View>
