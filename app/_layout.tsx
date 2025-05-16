@@ -6,7 +6,7 @@ export default function RootLayout() {
       <Image
       source={require('../assets/images/splash-icon.png')}
       />
-      <Text> Hi This is Login Signup</Text>
+      <Text>LoginSignup App</Text>
     </View>
   );
 }
