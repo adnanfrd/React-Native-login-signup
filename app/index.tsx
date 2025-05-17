@@ -7,7 +7,6 @@ const users = [
   { id: "user2", name: "Bob Smith" },
   { id: "user3", name: "Charlie Brown" },
   { id: "user4", name: "Diana Prince" },
-  { id: "user5", name: "Ethan Hunt" },
 ];
 
 export default function HomeScreen() {
@@ -19,6 +18,7 @@ export default function HomeScreen() {
         data={users}
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.list}
+
         renderItem={({ item }) => (
           <Link
             href={{
