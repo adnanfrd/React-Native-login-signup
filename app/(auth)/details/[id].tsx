@@ -1,5 +1,5 @@
-import { useLocalSearchParams } from 'expo-router';
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { useLocalSearchParams } from "expo-router";
+import { StatusBar, StyleSheet, Text, View } from "react-native";
 
 export default function DetailsScreen() {
   const { id, name } = useLocalSearchParams();
