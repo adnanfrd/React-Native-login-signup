@@ -1,4 +1,3 @@
-import { LinearGradient } from "expo-linear-gradient";
 import { Link } from "expo-router";
 import { FlatList, StatusBar, StyleSheet, Text, View } from "react-native";
 
@@ -10,14 +9,9 @@ const users = [
 
 export default function HomeScreen() {
   return (
-    <LinearGradient
-      colors={["#8e2de2", "#4a00e0"]}
-      style={styles.container}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-    >
-      <StatusBar barStyle="light-content" />
-      <Text style={styles.heading}>🌈 User Directory</Text>
+    <View style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor="#f5f9ff" />
+      <Text style={styles.heading}>User List</Text>
 
       <FlatList
         data={users}
@@ -38,48 +32,48 @@ export default function HomeScreen() {
           </Link>
         )}
       />
-    </LinearGradient>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#f5f9ff",
     paddingTop: 60,
     paddingHorizontal: 20,
   },
   heading: {
-    fontSize: 30,
-    fontWeight: "800",
+    fontSize: 28,
+    fontWeight: "bold",
     marginBottom: 24,
     textAlign: "center",
-    color: "#fff",
-    letterSpacing: 1,
+    color: "#003366",
   },
   list: {
     gap: 16,
     paddingBottom: 40,
   },
   card: {
-    backgroundColor: "rgba(255, 255, 255, 0.15)",
-    borderRadius: 16,
+    backgroundColor: "#ffffff",
+    borderRadius: 12,
     padding: 20,
-    shadowColor: "#000",
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
+    shadowColor: "#003366",
+    shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 4 },
-    borderWidth: 1,
-    borderColor: "rgba(255, 255, 255, 0.3)",
+    shadowRadius: 8,
+    elevation: 3,
+    borderLeftWidth: 4,
+    borderLeftColor: "#007bff",
   },
   name: {
-    fontSize: 20,
-    fontWeight: "700",
-    color: "#fff",
-    marginBottom: 6,
+    fontSize: 18,
+    fontWeight: "600",
+    color: "#003366",
+    marginBottom: 4,
   },
   details: {
     fontSize: 14,
-    color: "#f0f0f0",
-    opacity: 0.8,
+    color: "#666",
   },
 });
