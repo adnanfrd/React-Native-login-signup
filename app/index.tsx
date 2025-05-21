@@ -6,7 +6,6 @@ const users = [
   { id: "user2", name: "Bob Smith" },
   { id: "user3", name: "Charlie Brown" },
 ];
-
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
