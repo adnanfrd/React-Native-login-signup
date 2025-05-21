@@ -4,6 +4,7 @@ import { StatusBar, StyleSheet, Text, View } from "react-native";
 export default function DetailsScreen() {
   const { id, name } = useLocalSearchParams();
 
+  
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#f5f9ff" />
