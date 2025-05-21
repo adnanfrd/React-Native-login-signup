@@ -20,7 +20,6 @@
 //     useGoogleAuth();
 //   const { promptAsync: signInWithFacebook, request: fbRequest } =
 //     useFacebookAuth();
-
 //   const handleLogin = async () => {
 //     try {
 //       const storedUser = await AsyncStorage.getItem("user");
